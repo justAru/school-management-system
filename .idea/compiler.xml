@@ -3,6 +3,35 @@
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="school-schedule-service" />
+        <module name="school-administration-service" />
+        <module name="school-notification-service" />
+        <module name="school-db-struct" />
+        <module name="school-report-service" />
+        <module name="school-test-service" />
+      </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="school-administration-service" target="11" />
+      <module name="school-db-struct" target="11" />
+      <module name="school-notification-service" target="11" />
+      <module name="school-report-service" target="11" />
+      <module name="school-schedule-service" target="11" />
+      <module name="school-test-service" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="school-administration-service" options="-parameters" />
+      <module name="school-db-struct" options="-parameters" />
+      <module name="school-notification-service" options="-parameters" />
+      <module name="school-report-service" options="-parameters" />
+      <module name="school-schedule-service" options="-parameters" />
+      <module name="school-test-service" options="-parameters" />
+    </option>
   </component>
 </project>

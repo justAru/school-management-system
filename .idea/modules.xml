@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/school-administration-service/school-administration-service.iml" filepath="$PROJECT_DIR$/school-administration-service/school-administration-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/school-db-struct/school-db-struct.iml" filepath="$PROJECT_DIR$/school-db-struct/school-db-struct.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/school-management-system.iml" filepath="$PROJECT_DIR$/.idea/school-management-system.iml" />
+      <module fileurl="file://$PROJECT_DIR$/school-notification-service/school-notification-service.iml" filepath="$PROJECT_DIR$/school-notification-service/school-notification-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/school-report-service/school-report-service.iml" filepath="$PROJECT_DIR$/school-report-service/school-report-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/school-schedule-service/school-schedule-service.iml" filepath="$PROJECT_DIR$/school-schedule-service/school-schedule-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/school-test-service/school-test-service.iml" filepath="$PROJECT_DIR$/school-test-service/school-test-service.iml" />
     </modules>
   </component>
 </project>

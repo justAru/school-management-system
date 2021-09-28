@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@Table(name = "group")
+@Table(name = "_group")
 public class Group {
 
     @Id

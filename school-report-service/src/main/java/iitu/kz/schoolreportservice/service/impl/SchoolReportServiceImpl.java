@@ -1,15 +1,18 @@
 package iitu.kz.schoolreportservice.service.impl;
 
+import iitu.kz.schooldbstruct.model.Grades;
+import iitu.kz.schooldbstruct.model.Group;
+import iitu.kz.schooldbstruct.model.Subject;
+import iitu.kz.schooldbstruct.model.User;
 import iitu.kz.schoolreportservice.model.Report;
 import iitu.kz.schoolreportservice.service.SchoolReportService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import javax.security.auth.Subject;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -24,23 +27,23 @@ public class SchoolReportServiceImpl implements SchoolReportService {
 
         String date = LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
 
-        User student = restTemplate.getForObject("http://localhost:8081/student/" + studentId, User.class);
+        User student = restTemplate.getForObject("http://school-db-struct/student/" + studentId, User.class);
 
-        Group group = restTemplate.getForObject("http://localhost:8081/group/" + studentId, Group.class);
+        Group group = restTemplate.getForObject("http://school-db-struct/group/" + student.getGroup().getId(), Group.class);
 
-        List<Subject> subjects = restTemplate.getForObject("http://localhost:8081/subjects/" + studentId, Subject.class);
+        Subject[] subjects = restTemplate.getForObject("http://school-db-struct/subjects/" + studentId, Subject[].class);
 
         for (Subject subject: subjects) {
-            Grade grade = restTemplate.getForObject("http://localhost:8082/grade/" + studentId, Subject.class);
+            Grades grade = restTemplate.getForObject("http://school-db-struct/grade/" + studentId, Grades.class);
            report.setSubjectId(subject.getId());
            report.setSubjectName(subject.getName());
            report.setGrade(grade.getValue());
         }
 
         report.setUserId(student.getId());
-        report.setUserFullName(student.getFullName());
+        report.setUserFullName(student.getFirstName() + ' ' + student.getLastName());
         report.setEffectiveDate(date);
-        report.setGroupName(group);
+        report.setGroupName(group.getName());
 
         return report;
     }

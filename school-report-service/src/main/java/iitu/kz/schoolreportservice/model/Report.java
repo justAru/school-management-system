@@ -21,5 +21,5 @@ public class Report {
 
     private String subjectName;
 
-    private String grade;
+    private Double grade;
 }

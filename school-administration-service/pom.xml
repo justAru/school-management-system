@@ -14,7 +14,7 @@
 	<name>school-administration-service</name>
 	<description>CRM project for Spring Boot</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>1.8</java.version>
 		<spring.cloud-version>2020.0.3</spring.cloud-version>
 	</properties>
 	<dependencies>
@@ -47,6 +47,13 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+<!--		Db Struct service-->
+		<dependency>
+			<groupId>iitu.kz</groupId>
+			<artifactId>school-db-struct</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>

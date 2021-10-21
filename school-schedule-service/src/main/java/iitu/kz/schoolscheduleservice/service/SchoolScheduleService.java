@@ -1,11 +1,11 @@
 package iitu.kz.schoolscheduleservice.service;
 
-import iitu.kz.schoolscheduleservice.model.Event;
+import iitu.kz.schoolscheduleservice.model.EventDTO;
 
 import java.util.List;
 
 public interface SchoolScheduleService {
 
-    List<Event> getSchedule(String weekDay);
+    List<EventDTO> getSchedule(String weekDay);
 
 }

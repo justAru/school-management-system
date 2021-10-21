@@ -4,16 +4,14 @@ import iitu.kz.schooldbstruct.model.Grades;
 import iitu.kz.schooldbstruct.model.Group;
 import iitu.kz.schooldbstruct.model.Subject;
 import iitu.kz.schooldbstruct.model.User;
-import iitu.kz.schoolreportservice.model.Report;
+import iitu.kz.schoolreportservice.model.ReportDTO;
 import iitu.kz.schoolreportservice.service.SchoolReportService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 
 @Service
 public class SchoolReportServiceImpl implements SchoolReportService {
@@ -22,8 +20,8 @@ public class SchoolReportServiceImpl implements SchoolReportService {
     private RestTemplate restTemplate;
 
     @Override
-    public Report getReport(Long studentId) {
-        Report report = new Report();
+    public ReportDTO getReport(Long studentId) {
+        ReportDTO report = new ReportDTO();
 
         String date = LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
 

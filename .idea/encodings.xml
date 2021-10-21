@@ -3,6 +3,8 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/school-administration-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/school-db-struct/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/school-eureka/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/school-eureka/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/school-notification-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/school-report-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/school-schedule-service/src/main/java" charset="UTF-8" />

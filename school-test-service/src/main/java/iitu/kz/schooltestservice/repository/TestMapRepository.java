@@ -12,4 +12,5 @@ public interface TestMapRepository extends JpaRepository<TestUserMap, Long> {
     TestUserMap deleteByTestIdAndStudentId(Long testId, Long studentId);
     TestUserMap getByTestIdAndStudentId(Long testId, Long studentId);
     List<TestUserMap> getAllByTestIdOrderByScore(Long testId);
+    List<TestUserMap> getAllByTestId(Long testId);
 }

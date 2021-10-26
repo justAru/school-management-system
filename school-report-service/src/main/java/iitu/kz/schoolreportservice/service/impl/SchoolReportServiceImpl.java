@@ -1,5 +1,7 @@
 package iitu.kz.schoolreportservice.service.impl;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import iitu.kz.schooldbstruct.model.Grades;
 import iitu.kz.schooldbstruct.model.Group;
 import iitu.kz.schooldbstruct.model.Subject;
@@ -20,6 +22,13 @@ public class SchoolReportServiceImpl implements SchoolReportService {
     private RestTemplate restTemplate;
 
     @Override
+    @HystrixCommand(
+            fallbackMethod = "getReport",
+            threadPoolKey = "getAlternativeReport",
+            threadPoolProperties = {
+                    @HystrixProperty(name = "coreSize", value = "100"),
+                    @HystrixProperty(name = "maxQueuesize", value = "50"),
+            })
     public ReportDTO getReport(Long studentId) {
         ReportDTO report = new ReportDTO();
 
@@ -44,5 +53,15 @@ public class SchoolReportServiceImpl implements SchoolReportService {
         report.setGroupName(group.getName());
 
         return report;
+    }
+
+    public ReportDTO getAlternativeReport(Long id) {
+        ReportDTO reportDTO = new ReportDTO();
+        reportDTO.setGrade(0.00);
+        reportDTO.setGroupName("Group not found!");
+        reportDTO.setSubjectName("Subjects not found!");
+        reportDTO.setUserFullName("User not found!");
+
+        return reportDTO;
     }
 }

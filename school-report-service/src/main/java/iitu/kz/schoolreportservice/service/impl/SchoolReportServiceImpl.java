@@ -34,14 +34,14 @@ public class SchoolReportServiceImpl implements SchoolReportService {
 
         String date = LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
 
-        User student = restTemplate.getForObject("http://school-db-struct/student/" + studentId, User.class);
+        User student = restTemplate.getForObject("http://localhost:8762/student/" + studentId, User.class);
 
-        Group group = restTemplate.getForObject("http://school-db-struct/group/" + student.getGroup().getId(), Group.class);
+        Group group = restTemplate.getForObject("http://localhost:8762/group/" + student.getGroup().getId(), Group.class);
 
-        Subject[] subjects = restTemplate.getForObject("http://school-db-struct/subjects/" + studentId, Subject[].class);
+        Subject[] subjects = restTemplate.getForObject("http://localhost:8762/subjects/" + studentId, Subject[].class);
 
         for (Subject subject: subjects) {
-            Grades grade = restTemplate.getForObject("http://school-db-struct/grade/" + studentId, Grades.class);
+            Grades grade = restTemplate.getForObject("http://localhost:8762/grade/" + studentId, Grades.class);
            report.setSubjectId(subject.getId());
            report.setSubjectName(subject.getName());
            report.setGrade(grade.getValue());

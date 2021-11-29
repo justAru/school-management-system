@@ -43,7 +43,7 @@ public class SchoolScheduleServiceImpl implements SchoolScheduleService {
             event.setTeacherId(teacher.getId());
             event.setTeacherName(teacher.getFirstName() + ' ' + teacher.getLastName());
             event.setSubjectId(subject.getId());
-            event.setGroup(subject.getGroup().getName()); //not fully correct
+            event.setGroup(subject.getGroup().getName());
             event.setStartDate(subject.getStartDate());
             event.setEndDate(subject.getEndDate());
             eventList.add(event);

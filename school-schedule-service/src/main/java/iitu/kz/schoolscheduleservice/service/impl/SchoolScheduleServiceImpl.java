@@ -1,5 +1,7 @@
 package iitu.kz.schoolscheduleservice.service.impl;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import iitu.kz.schooldbstruct.model.Subject;
 import iitu.kz.schooldbstruct.model.User;
 import iitu.kz.schoolscheduleservice.model.EventDTO;
@@ -20,6 +22,13 @@ public class SchoolScheduleServiceImpl implements SchoolScheduleService {
     private RestTemplate restTemplate;
 
     @Override
+    @HystrixCommand(
+            fallbackMethod = "getSchedule",
+            threadPoolKey = "getAlternativeSchedule",
+            threadPoolProperties = {
+                    @HystrixProperty(name = "coreSize", value = "100"),
+                    @HystrixProperty(name = "maxQueueSize", value = "50"),
+            })
     public List<EventDTO> getSchedule(String day) {
 
         List<EventDTO> eventList = new ArrayList<>();
@@ -39,6 +48,17 @@ public class SchoolScheduleServiceImpl implements SchoolScheduleService {
             event.setEndDate(subject.getEndDate());
             eventList.add(event);
         }
+        return eventList;
+    }
+
+    private List<EventDTO> getAlternativeSchedule(String day){
+        List<EventDTO> eventList = new ArrayList<>();
+        EventDTO eventDTO = new EventDTO();
+        eventDTO.setGroup("Group not found!");
+        eventDTO.setTeacherName("Teacher not found!");
+        eventDTO.setSubjectName("Subjects not found!");
+        eventList.add(eventDTO);
+
         return eventList;
     }
 }

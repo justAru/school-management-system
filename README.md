@@ -17,5 +17,7 @@ Microservices:
 
 ![WhatsApp Image 2021-10-11 at 23 22 08](https://user-images.githubusercontent.com/57905281/136831142-9a1eb7ee-18e5-4b76-afa7-b284ff843392.jpeg)
 
+![Без названия drawio](https://user-images.githubusercontent.com/57905281/136883935-ca88fa97-0a38-4cf9-9966-57f3d8c794b3.png)
+
 Adding eureka(discovery) server to all services
 ![photo_2021-10-04 17 24 20](https://user-images.githubusercontent.com/57905281/135843342-aa96c91c-a2ce-4bd8-b1ad-cbcd3c404505.jpeg)

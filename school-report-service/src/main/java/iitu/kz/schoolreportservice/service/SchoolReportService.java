@@ -1,8 +1,8 @@
 package iitu.kz.schoolreportservice.service;
 
-import iitu.kz.schoolreportservice.model.Report;
+import iitu.kz.schoolreportservice.model.ReportDTO;
 
 public interface SchoolReportService {
 
-    Report getReport(Long studentId);
+    ReportDTO getReport(Long studentId);
 }

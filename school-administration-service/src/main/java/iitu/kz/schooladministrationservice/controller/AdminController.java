@@ -3,6 +3,7 @@ package iitu.kz.schooladministrationservice.controller;
 import com.netflix.discovery.converters.Auto;
 import iitu.kz.schooladministrationservice.model.UserDTO;
 import iitu.kz.schooladministrationservice.repository.UserRepository;
+import iitu.kz.schooladministrationservice.service.ProducerService;
 import iitu.kz.schooladministrationservice.service.UserService;
 import iitu.kz.schooldbstruct.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,9 @@ public class AdminController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private ProducerService producerService;
 
     @GetMapping("/all")
     public ResponseEntity<List<User>> getAllUsers() {
@@ -49,6 +53,12 @@ public class AdminController {
             return "User not Found!";
         }
         userService.deleteUser(user);
+        return "success";
+    }
+
+    @PostMapping("/sendNotification")
+    public String sendNotification(@PathVariable Long id) {
+        producerService.sendMessage(id);
         return "success";
     }
 

@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @EnableEurekaClient
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "iitu.kz")
 @EnableHystrixDashboard
 @EnableHystrix
 @EnableCircuitBreaker

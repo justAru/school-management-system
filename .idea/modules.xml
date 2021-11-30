@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/gateway/gateway.iml" filepath="$PROJECT_DIR$/gateway/gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/school-administration-service/school-administration-service.iml" filepath="$PROJECT_DIR$/school-administration-service/school-administration-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/school-db-struct/school-db-struct.iml" filepath="$PROJECT_DIR$/school-db-struct/school-db-struct.iml" />
       <module fileurl="file://$PROJECT_DIR$/school-eureka/school-eureka.iml" filepath="$PROJECT_DIR$/school-eureka/school-eureka.iml" />

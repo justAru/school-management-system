@@ -20,6 +20,7 @@ public class SecurityTokenConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/student/**").permitAll()
                 .antMatchers("/group/**").permitAll()
                 .antMatchers("/subjects/**").permitAll()
+                .antMatchers("/test/**").authenticated()
 //                 .antMatchers("/users/update").hasAuthority("ADMIN")
                 // .antMatchers("/users/create").permitAll()
                 //.antMatchers("/users/update").hasAuthority("ADMIN")

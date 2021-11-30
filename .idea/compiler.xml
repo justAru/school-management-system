@@ -14,9 +14,11 @@
         <module name="school-administration-service" />
         <module name="school-db-struct" />
         <module name="school-report-service" />
+        <module name="gateway" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="gateway" target="1.8" />
       <module name="school-administration-service" target="1.8" />
       <module name="school-db-struct" target="1.8" />
       <module name="school-eureka" target="1.8" />
@@ -28,6 +30,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="gateway" options="-parameters" />
       <module name="school-administration-service" options="-parameters" />
       <module name="school-db-struct" options="-parameters" />
       <module name="school-eureka" options="-parameters" />

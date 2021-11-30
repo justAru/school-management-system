@@ -75,7 +75,7 @@ public class TestService implements iTestService {
             threadPoolKey = "",
             threadPoolProperties = {
                     @HystrixProperty(name = "coreSize", value = "100"),
-                    @HystrixProperty(name = "maxQueuesize", value = "50"),
+                    @HystrixProperty(name = "maxQueueSize", value = "50"),
             })
     @Override
     public TestUserMap gradeStudent(Long testId, Long studentId, Double score) {
@@ -89,7 +89,7 @@ public class TestService implements iTestService {
             threadPoolKey = "getResults",
             threadPoolProperties = {
                     @HystrixProperty(name = "coreSize", value = "100"),
-                    @HystrixProperty(name = "maxQueuesize", value = "50"),
+                    @HystrixProperty(name = "maxQueueSize", value = "50"),
             })
     @Override
     public List<TestUserMap> getResultsOrderByScore(Long testId) {
